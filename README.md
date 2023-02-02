@@ -1,2 +1,3 @@
-# omni-api-js
-The JavaScript version of the Omni API client
+# Omni API (for Javascript)
+
+The JavaScript version of the Omni API client.
