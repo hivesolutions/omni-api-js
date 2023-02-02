@@ -1,19 +1,17 @@
 import { API as YoniusAPI, mix, load, conf } from "yonius";
-import { DatabaseAPI } from "./database.js";
+import { UserAPI } from "./user";
 
-const BASE_URL = "http://localhost/api/admin/";
+const BASE_URL = "http://localhost:8080/mvc/";
 
-export class APIAdmin extends mix(YoniusAPI).with(DatabaseAPI) {
+export class API extends mix(YoniusAPI).with(UserAPI) {
     constructor(kwargs = {}) {
         super(kwargs);
-        this.baseUrl = conf("ADMIN_URL", BASE_URL);
-        this.username = conf("ADMIN_USERNAME", null);
-        this.password = conf("ADMIN_PASSWORD", null);
-        this.secretKey = conf("ADMIN_SECRET_KEY", null);
+        this.baseUrl = conf("OMNI_BASE_URL", BASE_URL);
+        this.username = conf("OMNI_USERNAME", null);
+        this.password = conf("OMNI_PASSWORD", null);
         this.baseUrl = kwargs.base_url === undefined ? this.baseUrl : kwargs.base_url;
         this.username = kwargs.username === undefined ? this.username : kwargs.username;
         this.password = kwargs.password === undefined ? this.password : kwargs.password;
-        this.secretKey = kwargs.secret_key === undefined ? this.secretKey : kwargs.secret_key;
         this.sessionId = kwargs.session_id === undefined ? this.sessionId : kwargs.session_id;
     }
 
@@ -28,8 +26,7 @@ export class APIAdmin extends mix(YoniusAPI).with(DatabaseAPI) {
         options.headers = options.headers !== undefined ? options.headers : {};
         const auth = options.kwargs.auth === undefined ? true : options.kwargs.auth;
         delete options.kwargs.auth;
-        if (auth && this.secretKey) options.headers["X-Secret-Key"] = this.secretKey;
-        if (auth && !this.secretKey) options.params.sid = await this.getSessionId();
+        if (auth) options.params.sid = await this.getSessionId();
     }
 
     async getSessionId() {
@@ -47,7 +44,7 @@ export class APIAdmin extends mix(YoniusAPI).with(DatabaseAPI) {
     async login(username = undefined, password = undefined) {
         username = username !== undefined ? username : this.username;
         password = password !== undefined ? password : this.password;
-        const url = this.baseUrl + "login";
+        const url = `${this.baseUrl}omni/login.json`;
         const contents = await this.post(url, {
             callback: false,
             auth: false,
@@ -67,10 +64,10 @@ export class APIAdmin extends mix(YoniusAPI).with(DatabaseAPI) {
     }
 
     async ping() {
-        const url = this.baseUrl + "ping";
+        const url = `${this.baseUrl}omni/ping.json`;
         const contents = await this.get(url, { auth: false });
         return contents;
     }
 }
 
-export default APIAdmin;
+export default API;
