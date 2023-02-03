@@ -46,10 +46,14 @@ export class API extends mix(YoniusAPI).with(UserAPI) {
         password = password !== undefined ? password : this.password;
         const url = `${this.baseUrl}omni/login.json`;
         const contents = await this.post(url, {
-            callback: false,
-            auth: false,
-            username: username,
-            password: password
+            params: {
+                username: username,
+                password: password
+            },
+            kwargs: {
+                callback: false,
+                auth: false
+            }
         });
         this.username = contents.username || null;
         this.sessionId = contents.session_id || null;
