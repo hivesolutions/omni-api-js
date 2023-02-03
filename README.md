@@ -15,5 +15,5 @@ Omni API for Javascript is currently licensed under the [Apache License, Version
 ## Build Automation
 
 [![Build Status](https://github.com/hivesolutions/omni-api-js/workflows/Main%20Workflow/badge.svg)](https://github.com/hivesolutions/omni-api-js/actions)
-[![npm Status](https://img.shields.io/npm/v/omni-api.svg)](https://www.npmjs.com/package/omni-api)
+[![npm Status](https://img.shields.io/npm/v/omni-api-js.svg)](https://www.npmjs.com/package/omni-api-js)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/)
