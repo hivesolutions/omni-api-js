@@ -25,12 +25,15 @@
     "unpkg": "dist/omni.umd.js",
     "module": "dist/omni.esm.js",
     "browser": "dist/omni.umd.js",
+    "types": "types/index.d.ts",
+    "typings": "types/index.d.ts",
     "files": [
         "LICENSE",
         "dist/**/*",
         "res/**/*",
         "js/**/*.js",
-        "test/**/*.js"
+        "test/**/*.js",
+        "types/**/*.d.ts"
     ],
     "scripts": {
         "build": "rollup -c",
