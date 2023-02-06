@@ -11,10 +11,10 @@ export class API extends mix(YoniusAPI).with(UserAPI, StoreAPI, SaleSnapshotAPI)
         this.baseUrl = conf("OMNI_BASE_URL", BASE_URL);
         this.username = conf("OMNI_USERNAME", null);
         this.password = conf("OMNI_PASSWORD", null);
-        this.baseUrl = kwargs.base_url === undefined ? this.baseUrl : kwargs.base_url;
+        this.baseUrl = kwargs.baseUrl === undefined ? this.baseUrl : kwargs.baseUrl;
         this.username = kwargs.username === undefined ? this.username : kwargs.username;
         this.password = kwargs.password === undefined ? this.password : kwargs.password;
-        this.sessionId = kwargs.session_id === undefined ? this.sessionId : kwargs.session_id;
+        this.sessionId = kwargs.sessionId === undefined ? this.sessionId : kwargs.sessionId;
     }
 
     static async load() {
