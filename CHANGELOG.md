@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Renamed package from `omni-api` to `omni-api-js`
+* Added more TypeScript types
 
 ### Fixed
 
