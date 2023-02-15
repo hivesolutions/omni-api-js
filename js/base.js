@@ -33,7 +33,9 @@ export class API extends mix(YoniusAPI).with(UserAPI, StoreAPI, SaleSnapshotAPI)
 
     async getSessionId() {
         if (this.sessionId) return this.sessionId;
-        await this.login();
+        if (this.username !== null && this.password !== null) {
+            await this.login();
+        }
         return this.sessionId;
     }
 
