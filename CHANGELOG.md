@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+*
+
+## [0.2.3] - 2023-02-15
+
+### Fixed
+
 * Made login in session id retrieval according to username and password presence
 
 ## [0.2.2] - 2023-02-06
