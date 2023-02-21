@@ -22,7 +22,7 @@
         "url": "https://www.hive.pt"
     },
     "type": "module",
-    "main": "dist/omni.cjs.js",
+    "main": "dist/omni.cjs",
     "unpkg": "dist/omni.umd.js",
     "module": "dist/omni.esm.js",
     "browser": "dist/omni.umd.js",
@@ -33,15 +33,15 @@
         "dist/**/*",
         "res/**/*",
         "js/**/*.js",
-        "test/**/*.js",
+        "test/**/*.{js,cjs,mjs}",
         "types/**/*.d.ts"
     ],
     "scripts": {
         "build": "rollup -c",
         "example": "node examples/simple.js",
-        "lint": "eslint rollup.config.js \"./{js,test}/**/*.{js,json}\"",
-        "lint-fix": "eslint rollup.config.js \"./{js,test}/**/*.{js,json}\" --fix",
-        "prettier": "prettier rollup.config.js \"./*.{js,json}\" \"./{js,test}/**/*.{js,json}\" --write",
+        "lint": "eslint rollup.config.js \"./{js,test}/**/*.{js,cjs,mjs,json}\"",
+        "lint-fix": "eslint rollup.config.js \"./{js,test}/**/*.{js,cjs,mjs,json}\" --fix",
+        "prettier": "prettier rollup.config.js \"./*.{js,cjs,mjs,json}\" \"./{js,test}/**/*.{js,cjs,mjs,json}\" --write",
         "pretty": "npm run prettier && npm run lint-fix",
         "test": "mocha --recursive",
         "upgrade": "npx sort-package-json && ncu -u",
