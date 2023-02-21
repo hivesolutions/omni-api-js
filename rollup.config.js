@@ -1,10 +1,13 @@
+import { readFileSync } from "fs";
 import babel from "@rollup/plugin-babel";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import nodePolyfills from "rollup-plugin-node-polyfills";
-import pkg from "./package.json";
 
 import { yoniusRollup } from "yonius";
+
+const pkgData = readFileSync("./package.json");
+const pkg = JSON.parse(pkgData);
 
 const nodePath = process.env.NODE_PATH
     ? process.platform === "win32"
